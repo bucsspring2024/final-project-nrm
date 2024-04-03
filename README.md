@@ -2,18 +2,18 @@
 
 :warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
-# << Project Title >>
+# << pizza and cupcake making game>>
 ## CS110 Final Project  << spring , 2024 >>
 
 ## Team Members
 
-<< List team member names >>
+<< Natalie Mastrantoni, Lily Aronov>>
 
 ***
 
 ## Project Description
 
-<< Give an overview of your project >>
+<< a prgram where you can create tyour own pizzaq or cupcakes >>
 
 ***    
 
