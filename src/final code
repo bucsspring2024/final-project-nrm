@@ -1,0 +1,130 @@
+import pygame
+import random
+
+# Define screen dimensions
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT = 600
+
+# Define constants
+MAX_CUSTOMERS = 5
+MAX_WAIT_TIME = 100
+
+class Customer:
+    def __init__(self, name, style):
+        self.name = name
+        self.style = style
+        self.satisfaction = 100  # Start with full satisfaction
+        self.wait_time = random.randint(1, MAX_WAIT_TIME)  # Random initial wait time
+
+    def update(self):
+        # Update customer attributes over time
+        self.wait_time -= 1
+        if self.wait_time <= 0:
+            self.satisfaction -= 10
+
+    def is_angry(self):
+        return self.satisfaction <= 0
+
+class Barber:
+    def __init__(self, name):
+        self.name = name
+        self.available = True
+        self.customer = None
+
+    def start_haircut(self, customer):
+        self.available = False
+        self.customer = customer
+
+    def finish_haircut(self):
+        self.available = True
+        self.customer = None
+
+class Chair:
+    def __init__(self, x, y):
+        self.occupied = False
+        self.x = x
+        self.y = y
+
+class GameController:
+    def __init__(self):
+        self.customers = []
+        self.barbers = [Barber("Barber 1"), Barber("Barber 2")]
+        self.chairs = [Chair(100 + i * 200, 300) for i in range(len(self.barbers))]
+        self.score = 0
+        # Initialize Pygame
+        pygame.init()
+        self.screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+        pygame.display.set_caption("Barbershop Simulator")
+        self.clock = pygame.time.Clock()
+        self.customer_image = pygame.image.load("customer.png")
+        self.barber_image = pygame.image.load("barber.png")
+        self.chair_image = pygame.image.load("chair.png")
+        self.font = pygame.font.SysFont(None, 30)
+
+    def run(self):
+        # Main game loop
+        running = True
+        while running:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+
+            self.update()
+            self.render()
+            self.clock.tick(30)  # Limit to 30 frames per second
+
+        pygame.quit()
+
+    def update(self):
+        # Generate new customers
+        if len(self.customers) < MAX_CUSTOMERS:
+            if random.random() < 0.01:
+                name = "Customer " + str(len(self.customers) + 1)
+                style = random.choice(["Short", "Medium", "Long"])
+                self.customers.append(Customer(name, style))
+
+        # Update game state
+        for customer in self.customers:
+            customer.update()
+            if customer.is_angry():
+                self.customers.remove(customer)
+                self.score -= 10
+
+        for barber in self.barbers:
+            if barber.available:
+                for chair in self.chairs:
+                    if not chair.occupied:
+                        if self.customers:
+                            customer = self.customers.pop(0)
+                            barber.start_haircut(customer)
+                            chair.occupied = True
+                            break
+
+        for barber in self.barbers:
+            if not barber.available:
+                barber.customer.satisfaction -= 1
+                if barber.customer.satisfaction <= 0:
+                    barber.finish_haircut()
+                    self.score -= 20
+                    for chair in self.chairs:
+                        if chair.occupied and chair.x == self.chairs[self.barbers.index(barber)].x:
+                            chair.occupied = False
+
+    def render(self):
+        # Render graphics
+        self.screen.fill((192, 224, 255))  # Light blue background
+        for chair in self.chairs:
+            self.screen.blit(self.chair_image, (chair.x, chair.y))
+            if chair.occupied:
+                pygame.draw.rect(self.screen, (255, 0, 0), (chair.x + 20, chair.y + 60, 60, 10))  # Red indicator for occupied chair
+        for i, barber in enumerate(self.barbers):
+            self.screen.blit(self.barber_image, (self.chairs[i].x, self.chairs[i].y - 100))
+        for i, customer in enumerate(self.customers):
+            self.screen.blit(self.customer_image, (50, 50 + i * 120))
+            text = self.font.render(customer.name + " - " + customer.style, True, (0, 0, 0))
+            self.screen.blit(text, (100, 70 + i * 120))
+        pygame.display.flip()
+
+if __name__ == "__main__":
+    game = GameController()
+    game.run()
