@@ -1,6 +1,8 @@
 import pygame
-#import your controller
-
+pygame.init()
+screen = pygame.display.set_mode()
+width, height = pygame.display.get_window_size()
+screen.fill("blue")
 def main():
     pygame.init()
     #Create an instance on your controller object

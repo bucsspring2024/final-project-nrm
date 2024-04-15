@@ -2,18 +2,18 @@
 
 :warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
-# << Project Title >>
-## CS110 Final Project  << Semester, Year >>
+# << Barber Shop >>
+## CS110 Final Project  << spring , 2024 >>
 
 ## Team Members
 
-<< List team member names >>
+<< Natalie Mastrantoni, Lily Aronov>>
 
 ***
 
 ## Project Description
 
-<< Give an overview of your project >>
+<< you can change a persons hair style to make it your own >>
 
 ***    
 
