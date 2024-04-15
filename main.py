@@ -3,16 +3,7 @@ pygame.init()
 screen = pygame.display.set_mode()
 width, height = pygame.display.get_window_size()
 
-class user:
-  
-class hair_style:
-  def __init__(self, name, color, length, thickness):
-    self.name = name
-    self.color = color
-    self.length = length
-    
 
-screen.fill("blue")
 def main():
     pygame.init()
     #Create an instance on your controller object
