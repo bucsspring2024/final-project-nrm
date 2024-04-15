@@ -2,7 +2,7 @@
 
 :warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
-# << pizza and cupcake making game>>
+# << Barber Shop >>
 ## CS110 Final Project  << spring , 2024 >>
 
 ## Team Members
@@ -13,7 +13,7 @@
 
 ## Project Description
 
-<< a prgram where you can create tyour own pizzaq or cupcakes >>
+<< you can change a persons hair style to make it your own >>
 
 ***    
 
