@@ -1,15 +1,10 @@
 import pygame
-pygame.init()
-screen = pygame.display.set_mode()
-width, height = pygame.display.get_window_size()
-screen.fill("blue")
-def main():
-    pygame.init()
-    #Create an instance on your controller object
-    #Call your mainloop
-    
-    ###### NOTHING ELSE SHOULD GO IN main(), JUST THE ABOVE 3 LINES OF CODE ######
+from src.controller import Controller
 
-# https://codefather.tech/blog/if-name-main-python/
-if __name__ == '__main__':
-    main()
+def main():
+     pygame.init()
+     controller = Controller()
+     controller.mainloop()
+    
+    
+main()
