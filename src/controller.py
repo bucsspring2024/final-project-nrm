@@ -28,9 +28,10 @@ class Controller():
         self.lunch = Lunch()
         self.end = EndDay()
         self.state = "WAKEUP"
+        self.classes = [self.history, self.math, self.lunch, self.end]
 
     def mainloop(self):
-        while True:
+        while self.classes:
             if self.state == "HISTORY":
                self.historyclass()
             elif self.state == "MATH":
@@ -60,17 +61,16 @@ class Controller():
                 pygame.display.update()
                 alarm_controller = False
                 self.state = "HISTORY"
-                
-    def historyclass(self):
         
-        self.state = "MATH"
-        
-    def mathclass(self):
-        self.state = "LUNCH"
-        
-    def lunchclass(self):
-        self.state = "END"
-        
+    def classloop(self):
+         while self.classes:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    running = False
+            if self.classes[0].classover == True:
+                self.classes.pop[0]
+                pygame.display.update()
+
 if __name__ == "__main__":
     controller = Controller()
     controller.mainloop()
