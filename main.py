@@ -14,8 +14,7 @@ def main():
 if __name__ == '__main__':
     main()
 
-<<<<<<< HEAD
-=======
+
 user class
 hairstyle class
->>>>>>> ea99b1e8044f425aeaa473d7b85655efd729720d
+
