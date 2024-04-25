@@ -1,3 +1,6 @@
 class History():
-   #def __init__ (self, teacher, student, background, etc)
+   def __init__ (self, historyteacher):
+        
+    
    
+#    use easy history facts api
