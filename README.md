@@ -2,7 +2,7 @@
 
 :warning: Everything between << >> needs to be replaced (remove << >> after replacing)
 
-# << Barber Shop >>
+# << School day simulator >>
 ## CS110 Final Project  << spring , 2024 >>
 
 ## Team Members
@@ -13,7 +13,7 @@
 
 ## Project Description
 
-<< you can change a persons hair style to make it your own >>
+<< We will simulate an average highschool day, with the player aswering questions or tasks in each period >>
 
 ***    
 
