@@ -1,19 +1,18 @@
 #mimic food fight
-
-
-class Lunch():
-   def __init__ (self):
-        pass
+# class Lunch():
+#    def __init__ (self):
+#         pass
     
-   def foodfight():
-        pass
+#    def foodfight():
+#         pass
 import pygame
 class lunch():
     def __init__(self):
         # Initialize the mixer module
         pygame.mixer.init()
+        pygame.init()
         # Load and play the lunch room noise
-        pygame.mixer.music.load('lunch_room_noise.mp3')
+        pygame.mixer.music.load('talking.wav')
         pygame.mixer.music.play(-1)
         self.screen = pygame.display.set_mode((800, 600))
         pygame.display.set_caption()
@@ -22,7 +21,7 @@ class lunch():
 
         self.text_surface1 = self.font.render("It time for lunch. Lets go sit down and eat some food with your friends", True, (0, 0, 0))
         self.text_rect1 = self.text_surface1.get_rect(center=(400, 300))
-        # Have soeme nosie of kids talking in the background playing
+       
 
         # person asking player
         self.text_surface2 = self.font.render("What are you having for lunch", True, (0, 0, 0))
@@ -35,8 +34,10 @@ class lunch():
 
         self.text_surface4 = self.font.render("Oh no, that table started a... FOOD FIGHT!!!", True, (0, 0, 0))
         self.text_rect4 = self.text_surface4.get_rect(center=(400, 450))
+        pygame.mixer.music.load('fighting_sounds.mp3')
+        pygame.mixer.music.play()  # The -1 makes the sound loop indefinitely
 
-        # noise of kids playing sounds in background
+        
         self.image = pygame.image.load("FoodFight.png")
         self.image_rect = self.image.get_rect(center=(400, 300))
 
@@ -57,3 +58,7 @@ class lunch():
         self.screen.blit(self.text_surface5, self.text_rect5)
 
         pygame.display.flip()
+
+if __name__ == "__main__":
+    game = lunch()
+    game.main()

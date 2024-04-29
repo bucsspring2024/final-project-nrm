@@ -1,15 +1,12 @@
 # questions:
 # plan for structure: use self.state to transition between different classes
 # how to incoporate a teacher in each class - transparent png over background?
-# how to get people to answer questions - prompted by screen, then input their answer, etc
-
-
-
+# how to get people answer questions - prompted by screen, then input their answer, etc
 
 import pygame
 
 from src.history import History
-from src.math import Math
+from math_1 import Math
 from src.lunch import Lunch
 from src.end_of_day import EndDay
 

@@ -1,12 +1,3 @@
-class History():
-   def __init__ (self, historyteacher):
-        #here: api info
-      self.classover = False
-   
-# use easy history facts api
-# if you get it wrong everyone laughs
-# use pygame menu for buttons
-# call to history api
 import pygame
 import requests
 import json
@@ -15,7 +6,7 @@ class History_class():
     def __init__(self):
         self.screen = pygame.display.set_mode((800, 600))
         pygame.display.set_caption("Hello I am Mr. Adams and this is History 101.")
-        self.font = pygame.font.Font(None, 36)
+        self.font = pygame.font.Font(None, 35)
         self.teacher_image = pygame.image.load("History_teacher.png")
 
         # Fetch a trivia question
@@ -45,6 +36,7 @@ class History_class():
 
     def draw(self):
         # Draw the question and the answers onto the screen
+        self.screen.blit(self.teacher_image, (0, 0))
         self.screen.blit(self.question_surface, self.question_rect)
         self.screen.blit(self.correct_answer_surface, self.correct_answer_rect)
         for surface, rect in zip(self.incorrect_answer_surfaces, self.incorrect_answer_rects):
@@ -73,6 +65,8 @@ class History_class():
                     pos = pygame.mouse.get_pos()
                     self.check_answer(pos)
             self.draw()
+            self.classover = False
+
         pygame.quit()
 
 if __name__ == "__main__":

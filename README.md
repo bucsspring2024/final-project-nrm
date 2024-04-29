@@ -39,9 +39,13 @@
 
 ### Classes
 
-- << You should have a list of each of your classes with a description >>
-
+- Math Class
+- History class
+- Lunch class
+- end_of_day class
 ## ATP
+
+- all of this was working I am sorry if it doesn't work anymore we have been super busy
 
 Test #1:
 - Step 1: Start game
