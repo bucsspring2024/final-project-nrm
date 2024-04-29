@@ -1,3 +1,12 @@
+#mimic food fight
+
+
+class Lunch():
+   def __init__ (self):
+        pass
+    
+   def foodfight():
+        pass
 import pygame
 class lunch():
     def __init__(self):
