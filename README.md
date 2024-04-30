@@ -45,7 +45,7 @@
 - end_of_day class
 ## ATP
 
-- all of this was working I am sorry if it doesn't work anymore we have been super busy
+
 
 Test #1:
 - Step 1: Start game
