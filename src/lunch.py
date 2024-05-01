@@ -1,12 +1,12 @@
-import pygame 
-
+import pygame
 class Lunch():
     def __init__(self):
         # Initialize the mixer module
         pygame.mixer.init()
         pygame.init()
         # Load and play the lunch room noise
-        self.people_talking_sound = pygame.mixer.Sound('people_talking.wav')
+        pygame.mixer.music.load('talking.wav')
+        pygame.mixer.music.play(-1)
         self.screen = pygame.display.set_mode((800, 600))
         pygame.display.set_caption()
         self.font = pygame.font.Font(None, 36)
