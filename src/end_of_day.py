@@ -1,6 +1,7 @@
 import pygame
 class EndDay():
    def __init__ (self):
+      pygame.init()
       self.font = pygame.font.Font(None, 36)
       self.endofday_image = pygame.image.load("school_house.png")
       pygame.display.set_caption("End of the Day")

@@ -1,3 +1,4 @@
+import pygame 
 
 class Lunch():
     def __init__(self):
@@ -5,8 +6,7 @@ class Lunch():
         pygame.mixer.init()
         pygame.init()
         # Load and play the lunch room noise
-        pygame.mixer.music.load('talking.wav')
-        pygame.mixer.music.play(-1)
+        self.people_talking_sound = pygame.mixer.Sound('people_talking.wav')
         self.screen = pygame.display.set_mode((800, 600))
         pygame.display.set_caption()
         self.font = pygame.font.Font(None, 36)
@@ -33,10 +33,16 @@ class Lunch():
         
         self.image = pygame.image.load("FoodFight.png")
         self.image_rect = self.image.get_rect(center=(400, 300))
+        self.fighting_sound = pygame.mixer.Sound('fighting_sound.wav')
 
         self.text_surface5 = self.font.render("We better get out of here.", True, (0, 0, 0))
         self.text_rect5 = self.text_surface5.get_rect(center=(400, 500))
-        
+    def play_people_talking(self):
+        # Play the people talking sound
+        self.people_talking_sound.play()
+    def play_fighting_sound(self):
+        # Play the fighting sound
+        self.fighting_sound.play()
     def draw(self):
         self.screen.blit(self.text_surface1, self.text_rect1)
 
