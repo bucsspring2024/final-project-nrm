@@ -7,7 +7,7 @@ class History():
         self.screen = pygame.display.set_mode((800, 600))
         pygame.display.set_caption("Hello I am Mr. Adams and this is History 101.")
         self.font = pygame.font.Font(None, 35)
-        self.teacher_image = pygame.image.load("History_teacher.png")
+        self.teacher_image = pygame.image.load("assets/History_teacher.png")
 
         # Fetch a trivia question
         question, correct_answer, incorrect_answers = self.get_trivia_question()

@@ -1,7 +1,7 @@
 import pygame
 import requests
 import json
-class Math_class():
+class Math():
     def __init__(self):
         self.screen = pygame.display.set_mode((800, 600))
         pygame.display.set_caption("Welcome to Math class. I am Mr. Smith and I will be your teacher today.")
@@ -66,7 +66,7 @@ class Math_class():
         pygame.quit()
 
 if __name__ == "__main__":
-    game = Math_class()
+    game = Math()
     game.main()
 
 

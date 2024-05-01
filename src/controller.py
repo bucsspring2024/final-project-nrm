@@ -1,9 +1,9 @@
 import pygame
 
-from history import History
-#from math import Math
-from lunch import Lunch
-from end_of_day import EndDay
+from src.history import History
+from math_1 import Math
+from src.lunch import Lunch
+from src.end_of_day import EndDay
 
 class Controller():
     def __init__(self):
@@ -14,21 +14,20 @@ class Controller():
         pygame.display.set_caption("Wake up... it's time for school!")
         self.font = pygame.font.Font(None, 36)
         self.alarmclock_image = pygame.image.load("/Users/lilyaronov/github-classroom/bucsspring2024/final-project-nrm/assets/alarmclock.png")
-        #self.alarm_sound = pygame.mixer.Sound("alarm_sound.wav")
+        self.alarm_sound = pygame.mixer.Sound("alarm_sound.wav")
         self.history = History()
-        #self.math = Math()
+        self.math = Math()
         self.lunch = Lunch()
         self.end = EndDay()
         self.state = "WAKEUP"
-        self.classes = [self.history, self.lunch, self.end]
-        #self.classes = [self.history, self.math, self.lunch, self.end]
+        self.classes = [self.history, self.math, self.lunch, self.end]
 
     def mainloop(self):
         while self.classes:
             if self.state == "HISTORY":
                self.history()
-            #elif self.state == "MATH":
-                #self.math()
+            elif self.state == "MATH":
+                self.math()
             elif self.state == "LUNCH":
                 self.lunch()
             if self.state == "END":
@@ -50,7 +49,7 @@ class Controller():
                 x = (self.width - text_surface.get_width()) // 2 
                 y = (self.height - text_surface.get_height()) // 2
                 self.screen.blit(text_surface, (x, y))
-                #self.alarm_sound.play()
+                self.alarm_sound.play()
                 pygame.display.update()
                 alarm_controller = False
                 self.state = "HISTORY"
@@ -60,7 +59,7 @@ class Controller():
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-            if self.classes[0].classover == True:
+            if self.classes[0] == True:
                 self.classes.pop[0]
                 pygame.display.update()
 
