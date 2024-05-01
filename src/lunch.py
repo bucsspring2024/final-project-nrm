@@ -1,12 +1,5 @@
-#mimic food fight
-# class Lunch():
-#    def __init__ (self):
-#         pass
-    
-#    def foodfight():
-#         pass
-import pygame
-class lunch():
+
+class Lunch():
     def __init__(self):
         # Initialize the mixer module
         pygame.mixer.init()
@@ -60,5 +53,5 @@ class lunch():
         pygame.display.flip()
 
 if __name__ == "__main__":
-    game = lunch()
+    game = Lunch()
     game.main()

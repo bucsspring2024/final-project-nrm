@@ -2,7 +2,7 @@ import pygame
 import requests
 import json
 
-class History_class():
+class History():
     def __init__(self):
         self.screen = pygame.display.set_mode((800, 600))
         pygame.display.set_caption("Hello I am Mr. Adams and this is History 101.")
@@ -70,5 +70,5 @@ class History_class():
         pygame.quit()
 
 if __name__ == "__main__":
-    game = History_class()
+    game = History()
     game.main()
