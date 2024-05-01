@@ -1,9 +1,10 @@
 import pygame
-import requests
+# import requests
 import json
 
 class History():
     def __init__(self):
+        pygame.init()
         self.screen = pygame.display.set_mode((800, 600))
         pygame.display.set_caption("Hello I am Mr. Adams and this is History 101.")
         self.font = pygame.font.Font(None, 35)
@@ -29,6 +30,7 @@ class History():
         response = requests.get("https://opentdb.com/api.php?amount=2&category=23&difficulty=medium&type=multiple")
         if response.status_code == 200:
             data = json.loads(response.text)
+            print(data)
             return data['results'][0]['question'], data['results'][0]['correct_answer'], data['results'][0]['incorrect_answers']
         else:
             print("Failed to get data from trivia API")
