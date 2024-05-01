@@ -1,6 +1,7 @@
 import pygame
-# import requests
+import requests
 import json
+
 class Math():
     def __init__(self):
         pygame.init()

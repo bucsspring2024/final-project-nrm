@@ -1,7 +1,7 @@
 import pygame
 
 from src.history import History
-from math_1 import Math
+from src.math_1 import Math
 from src.lunch import Lunch
 from src.end_of_day import EndDay
 
