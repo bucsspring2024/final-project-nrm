@@ -39,12 +39,63 @@
 
 ### Classes
 
-- << You should have a list of each of your classes with a description >>
-
+- Math Class
+- History class
+- Lunch class
+- end_of_day class
 ## ATP
 
-| Step                 |Procedure             |Expected Results                   |
-|----------------------|:--------------------:|----------------------------------:|
-|  1                   | Run Counter Program  |GUI window appears with count = 0  |
-|  2                   | click count button   | display changes to count = 1      |
-etc...
+
+
+Test #1:
+- Step 1: Start game
+    - Open terminal , go to project folder type:
+        - ''py
+        python main.py
+        '''
+- Expected Result:
+   - School building should show on screen saying "Wake up its time to get ready for school"
+
+Test #2:
+- Step 1: Start game
+    - Open terminal , go to project folder type:
+         - ''py
+        python main.py
+        '''
+- Step 2: Sound plays
+    - Player click anywhere on screen to start 
+- Expected Result:
+    - Should start game and alarm bell on screen and sound plays 
+
+Test #3:
+- Step 1: Start history class 
+    - Open terminal , go to project folder type:
+         - ''py
+        python history.py
+        '''
+- Step 2: Load screen with trivia questions
+    - Player clicks on a box on the screen
+- Expected result:
+    - Should show teachers response if correct 
+
+Test #4:
+- Step 1: Start math class
+    - Open terminal , go to project folder type:
+         - ''py
+        python math.py
+        '''
+- Step 2: Load screen with trivia question
+    - Player click on box to choose answer
+- Expected results:
+    - Should load teacher responding if correct or incorrect
+
+Test #5:
+- Step 1: Start lunch
+    - Open terminal , go to project folder type:
+          - ''py
+        python lunch.py
+        '''
+- Step 2: Load screen 
+    - Player should read the lines
+- Expected results:
+    - Conversation should run between player and other student

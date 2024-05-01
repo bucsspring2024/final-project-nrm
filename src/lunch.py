@@ -1,4 +1,3 @@
-import pygame
 
 class Lunch():
     def __init__(self):
