@@ -18,7 +18,6 @@ class EndDay():
         self.car_sound.play()
 
    def draw(self, screen):
-      # Draw the end of the day screen
       screen.fill((255, 255, 255))
       screen.blit(self.endofday_image, (0, 0))
       screen.blit(self.text_surface, self.text_rect)
