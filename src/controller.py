@@ -9,12 +9,12 @@ class Controller():
     def __init__(self):
         pygame.init()
         self.width = 800
-        self.height = 800
+        self.height = 600
         self.screen = pygame.display.set_mode((self.width, self.height))
         pygame.display.set_caption("Wake up... it's time for school!")
         self.font = pygame.font.Font(None, 36)
-        self.alarmclock_image = pygame.image.load("/Users/lilyaronov/github-classroom/bucsspring2024/final-project-nrm/assets/alarmclock.png")
-        self.alarm_sound = pygame.mixer.Sound("alarm_sound.wav")
+        self.alarmclock_image = pygame.image.load("assets/alarm_clock.png")
+        self.alarm_sound = pygame.mixer.Sound("assets/alarm_sound.wav")
         self.history = History()
         self.math = Math()
         self.lunch = Lunch()
@@ -62,7 +62,3 @@ class Controller():
             if self.classes[0] == True:
                 self.classes.pop[0]
                 pygame.display.update()
-
-if __name__ == "__main__":
-    controller = Controller()
-    controller.mainloop()

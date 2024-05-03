@@ -1,23 +1,19 @@
 import pygame
-# import requests
+import requests
 import json
 
 class History():
     def __init__(self):
         pygame.init()
         self.screen = pygame.display.set_mode((800, 600))
-        pygame.display.set_caption("Hello I am Mr. Adams and this is History 101.")
-        self.font = pygame.font.Font(None, 35)
+        pygame.display.set_caption("Hello I am Ms. History Teacher and this is History 101.")
+        self.font = pygame.font.Font(None, 25)
         self.teacher_image = pygame.image.load("assets/History_teacher.png")
 
-        # Fetch a trivia question
         question, correct_answer, incorrect_answers = self.get_trivia_question()
-
-        # Create a surface with the question and get its rectangle
         self.question_surface = self.font.render(question, True, (0,0,0))
         self.question_rect = self.question_surface.get_rect(center=(400, 300))
 
-        # Create surfaces with the answers and get their rectangles
         self.correct_answer_surface = self.font.render(correct_answer, True, (0, 0, 0))
         self.correct_answer_rect = self.correct_answer_surface.get_rect(center=(400, 350))
 
@@ -37,7 +33,6 @@ class History():
             return None
 
     def draw(self):
-        # Draw the question and the answers onto the screen
         self.screen.blit(self.teacher_image, (0, 0))
         self.screen.blit(self.question_surface, self.question_rect)
         self.screen.blit(self.correct_answer_surface, self.correct_answer_rect)
@@ -46,14 +41,14 @@ class History():
         pygame.display.flip()
 
     def check_answer(self, pos):
-        # Check if the clicked position is within the rectangle of the correct answer
-            cheering_sound = pygame.mixer.Sound('cheering.wav')
-            laughing_sound = pygame.mixer.Sound('laughing.wav')
+            cheering_sound = pygame.mixer.Sound('assets/cheering.wav')
+            laughing_sound = pygame.mixer.Sound("assets/laughing.wav")
             if self.correct_answer_rect.collidepoint(pos):
                 print("Correct! Great job.")
+                
                 cheering_sound.play()
             else:
-                print("OOOO better luck next time.")
+                print("Oh man... better luck next time.")
                 laughing_sound.play()
 
     def main(self):
@@ -63,7 +58,6 @@ class History():
                 if event.type == pygame.QUIT:
                     running = False
                 elif event.type == pygame.MOUSEBUTTONDOWN:
-                    # Get the position of the mouse when it's clicked
                     pos = pygame.mouse.get_pos()
                     self.check_answer(pos)
             self.draw()

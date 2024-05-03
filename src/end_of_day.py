@@ -9,8 +9,7 @@ class EndDay():
       self.text_rect = self.text_surface.get_rect(center=(400, 300))
       self.text_surface2 = self.font.render("It's time for you to get on the bus to go home.", True, (0, 0, 0))
       self.text_rect2 = self.text_surface2.get_rect(center=(400, 350))
-      # click on bus image to go home?
-      self.text_surface3 = self.font.render("Thank you for joining our school.Have a good evening and hopefully we'll see you tommorrow.", True, (0, 0, 0))
+      self.text_surface3 = self.font.render("Thank you for joining our school .Have a good evening and hopefully we'll see you tommorrow.", True, (0, 0, 0))
       self.text_rect3 = self.text_surface3.get_rect(center=(400, 400))
       self.car_sound = pygame.mixer.Sound('car_noise.wav')
 
