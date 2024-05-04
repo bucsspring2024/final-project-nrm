@@ -53,55 +53,28 @@ class History():
                 pygame.draw.rect(self.screen, (200, 200, 200), rect)  # Draw background for answers
                 self.screen.blit(surface, rect)
 
+        pygame.display.flip()  # Update the display
+        
+    def check_answer(self, pos):
+        for answer_text, rect in zip(self.answer_texts, self.answer_rects):
+            if rect.collidepoint(pos):
+                if answer_text == self.correct_answer:
+                    self.show_feedback(True)  # Show feedback for correct answer
+                else:
+                    self.show_feedback(False)  # Show feedback for incorrect answer
+                # Clear question and answer surfaces
+                self.question_surface = None
+                self.answer_surfaces = []
+                break  # Exit the loop after selecting an answer
 
-       pygame.display.flip()
+    def show_feedback(self, is_correct):
+        message = "Correct!" if is_correct else "Incorrect!"
+        feedback_surface = self.big_font.render(message, True, (0, 255, 0) if is_correct else (255, 0, 0))
+        feedback_rect = feedback_surface.get_rect(center=(400, 300))
 
-
-
-
-   def check_answer(self, pos):
-       cheering_sound = pygame.mixer.Sound('assets/cheering.wav')
-       laughing_sound = pygame.mixer.Sound("assets/laughing.wav")
-
-
-       # Check if the correct answer was clicked
-       if self.correct_answer_rect.collidepoint(pos):
-           # Play cheering sound
-           cheering_sound.play()
-
-
-           # Create a surface with the "Correct!" message and get its rectangle
-           message_surface = self.font.render("Correct!", True, (0, 0, 0))
-           message_rect = message_surface.get_rect(center=(400, 500))
-       else:
-           # Play laughing sound
-           laughing_sound.play()
-
-
-           # Create a surface with the "Incorrect!" message and get its rectangle
-           message_surface = self.font.render("Incorrect!", True, (0, 0, 0))
-           message_rect = message_surface.get_rect(center=(350, 500))
-
-
-       # Draw a white rectangle behind the message
-       pygame.draw.rect(self.screen, (255, 255, 255), message_rect.inflate(20, 20))
-
-
-       # Draw the message
-       self.screen.blit(message_surface, message_rect)
-
-
-       pygame.display.flip()
-
-
-       # Wait for 2 seconds before clearing the message
-       pygame.time.delay(2000)
-
-
-       # Clear the screen
-       self.screen.fill((255, 255, 255))
-       pygame.display.flip()
-
+        self.screen.blit(feedback_surface, feedback_rect)
+        pygame.display.flip()
+        pygame.time.delay(2000)  # Wait for 2 seconds
 
     def main(self):
         running = True
