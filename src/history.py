@@ -1,6 +1,5 @@
 import pygame
-import urllib.request
-import json
+import requests
 import pygame.time
 
 class History():
@@ -42,9 +41,10 @@ class History():
     
     def get_trivia_question(self):
         if not self.questions:  # If there are no more questions
-            with urllib.request.urlopen("https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple") as url:
-                data = json.loads(url.read().decode())
-                self.questions = data['results']  # Store the questions
+            response= requests.get("https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple")
+            response.raise_for_status()
+            data= response.json()
+            self.questions = data['results']
     # Get the first question and remove it from the list
         question_data = self.questions.pop(0)
         return question_data['question'], question_data['correct_answer'], question_data['incorrect_answers']
