@@ -114,6 +114,12 @@ class History():
        # Wait for 2 seconds before clearing the message
        pygame.time.delay(2000)
 
+
+       # Clear the screen
+       self.screen.fill((255, 255, 255))
+       pygame.display.flip()
+
+
    def main(self):
        running = True
        while running:
@@ -125,6 +131,10 @@ class History():
                    self.check_answer(pos)
            self.draw()
            self.classover = False
+
+
+       pygame.quit()
+
 
 if __name__ == "__main__":
    game = History()
