@@ -1,7 +1,7 @@
 import pygame
-import urllib.request
-import json
+import requests
 import pygame.time
+import json
 
 class History():
     def __init__(self):
@@ -10,14 +10,13 @@ class History():
         pygame.display.set_caption("History Class")
         self.font = pygame.font.Font(None, 25)
         self.teacher_image = pygame.image.load("assets/History_teacher.png")
-
-        # Initialize self.questions as an empty list
         self.questions = []
         correct_answer = ""
-       
         sentence = "Welcome to History class. I am Mrs. Smith and I will be your teacher today. Let's get started"
         self.sentence_surface = self.font.render(sentence, True, (0,0,0))
         self.sentence_rect = self.sentence_surface.get_rect(center=(500, 100))
+        
+        
         # Fetch a trivia question
         question, correct_answer, incorrect_answers = self.get_trivia_question()
          
@@ -31,15 +30,19 @@ class History():
 
         self.incorrect_answer_surfaces = [self.font.render(answer, True, (0, 0, 0)) for answer in incorrect_answers]
         self.incorrect_answer_rects = [surface.get_rect(center=(400, 400 + i * 50)) for i, surface in enumerate(self.incorrect_answer_surfaces)]
-        # self.questions = [self.get_trivia_question() for _ in range(2)]
+        self.questions = [self.get_trivia_question() for _ in range(2)]
     
-    def get_trivia_question(self):
-        if not self.questions:  # If there are no more questions
-            with urllib.request.urlopen("https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple") as url:
-                data = json.loads(url.read().decode())
-                self.questions = data['results']  # Store the questions
-
-    # Get the first question and remove it from the list
+def get_trivia_question(self):
+    if not self.questions:  # If there are no more questions
+        response = requests.get("https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple")
+        response.raise_for_status()  # Raise an exception for HTTP errors
+        data = response.json()  # Parse the JSON response
+        results = data.get('results', [])  # Get the 'results' key from the JSON data, or use an empty list if it doesn't exist
+        if results:
+            question_data = results[0]  # Get the first question
+            return question_data['question'], question_data['correct_answer'], question_data['incorrect_answers']
+        else:
+            return None, None, [] 
         question_data = self.questions.pop(0)
         return question_data['question'], question_data['correct_answer'], question_data['incorrect_answers']
 
