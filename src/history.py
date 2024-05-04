@@ -96,7 +96,6 @@ class History():
 
 
 
-
     def check_answer(self, pos):
         cheering_sound = pygame.mixer.Sound('assets/cheering.wav')
         laughing_sound = pygame.mixer.Sound("assets/laughing.wav")
@@ -115,22 +114,22 @@ class History():
             self.current_question_index += 1    
 
 
-        if self.current_question_index < len(self.questions):
-            # Fetch the next question and answers
-            question_dict = self.questions[self.current_question_index]
-            question = question_dict['question']
-            correct_answer = question_dict['correct_answer']
-            incorrect_answers = question_dict['incorrect_answers']  
+            if self.current_question_index < len(self.questions):
+                # Fetch the next question and answers
+                question_dict = self.questions[self.current_question_index]
+                question = question_dict['question']
+                correct_answer = question_dict['correct_answer']
+                incorrect_answers = question_dict['incorrect_answers']  
 
 
             # Create surfaces with the question and answers and get their rectangles
-            self.question_surface = self.font.render(question, True, (0,0,0))
-            self.question_rect = self.question_surface.get_rect(center=(400, 300))
-            self.correct_answer_surface = self.font.render(correct_answer, True, (0, 0, 0))
-            self.correct_answer_rect = self.correct_answer_surface.get_rect(center=(400, 350))
-            self.incorrect_answer_surfaces = [self.font.render(answer, True, (0, 0, 0)) for answer in incorrect_answers]
-            self.incorrect_answer_rects = [surface.get_rect(center=(400, 400 + i * 50)) for i, surface in enumerate(self.incorrect_answer_surfaces)]
-            self.screen.fill((255, 255, 255))
+                self.question_surface = self.font.render(question, True, (0,0,0))
+                self.question_rect = self.question_surface.get_rect(center=(400, 300))
+                self.correct_answer_surface = self.font.render(correct_answer, True, (0, 0, 0))
+                self.correct_answer_rect = self.correct_answer_surface.get_rect(center=(400, 350))
+                self.incorrect_answer_surfaces = [self.font.render(answer, True, (0, 0, 0)) for answer in incorrect_answers]
+                self.incorrect_answer_rects = [surface.get_rect(center=(400, 400 + i * 50)) for i, surface in enumerate(self.incorrect_answer_surfaces)]
+                self.screen.fill((255, 255, 255))
         else:
             # Play laughing sound
             laughing_sound.play()
