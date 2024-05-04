@@ -3,7 +3,7 @@ import pygame
 from src.history import History
 from src.math_1 import Math
 from src.lunch import Lunch
-from src.end_of_day import EndDay
+from src.end_of_day import End
 
 class Controller():
     def __init__(self):
@@ -16,9 +16,9 @@ class Controller():
         self.alarmclock_image = pygame.image.load("assets/alarm_clock.png")
         self.alarm_sound = pygame.mixer.Sound("assets/alarm_sound.wav")
         self.history = History()
-        self.math = Math()
+        self.math_1 = Math()
         self.lunch = Lunch()
-        self.end = EndDay()
+        self.end_of_day = End()
         self.state = "WAKEUP"
         self.classes = [self.history, self.math, self.lunch, self.end]
 

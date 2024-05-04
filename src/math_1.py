@@ -34,6 +34,7 @@ class Math():
         self.questions = [self.get_trivia_question() for _ in range(2)]
         
     def get_trivia_question(self):
+
         if not self.questions:  # If there are no more questions
             response = requests.get("https://opentdb.com/api.php?amount=2&category=19&difficulty=medium&type=multiple")
             data = response.json()  # Parse the JSON response
