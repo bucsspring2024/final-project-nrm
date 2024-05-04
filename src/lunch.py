@@ -36,8 +36,7 @@ class Lunch():
         self.text_surface5 = self.font.render("We better get out of here.", True, (0, 0, 0))
         self.text_rect5 = self.text_surface5.get_rect(center=(400, 500))
     def play_people_talking(self):
-        # Play the people talking sound
-        self.people_talking_sound.play()
+        caf_chatter = pygame.mixer.Sound("assets/talking.wav")
     def play_fighting_sound(self):
         # Play the fighting sound
         self.fighting_sound.play()

@@ -74,8 +74,6 @@ class History():
        pygame.display.flip()
 
 
-
-
    def check_answer(self, pos):
        cheering_sound = pygame.mixer.Sound('assets/cheering.wav')
        laughing_sound = pygame.mixer.Sound("assets/laughing.wav")
