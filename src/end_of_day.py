@@ -1,5 +1,5 @@
 import pygame
-class EndDay():
+class End():
    def __init__ (self):
       pygame.init()
       self.font = pygame.font.Font(None, 36)
@@ -36,5 +36,5 @@ class EndDay():
       pygame.quit()
 
 if __name__ == "__main__":
-      game = EndDay()
+      game = End()
       game.main()

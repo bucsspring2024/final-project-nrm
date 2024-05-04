@@ -22,15 +22,12 @@ class Math():
         self.incorrect_answer_rects = [surface.get_rect(center=(400, 400 + i * 50)) for i, surface in enumerate(self.incorrect_answer_surfaces)]
 
         self.questions = [self.get_trivia_question() for _ in range(2)]
-
+        
     def get_trivia_question(self):
-        response = requests.get("https://opentdb.com/api.php?amount=2&category=19&difficulty=medium&type=multiple")
-        if response.status_code == 200:
-            data = json.loads(response.text)
-            return data['results'][0]['question'], data['results'][0]['correct_answer'], data['results'][0]['incorrect_answers']
-        else:
-            print("Failed to get data from trivia API")
-            return None
+       if not self.questions:  # If there are no more questions
+           response = requests.get("https://opentdb.com/api.php?amount=2&category=19&difficulty=medium&type=multiple")
+           data = response.json()  # Parse the JSON response
+           self.questions = data['results']  # Store the questions
 
     def draw(self):
         self.screen.blit(self.question_surface, self.question_rect)
