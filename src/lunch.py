@@ -10,6 +10,8 @@ class Lunch():
         self.font = pygame.font.Font(None, 36)
         self.teacher_image = pygame.image.load("Lunchroom.png")
 
+        self.caf_chatter = pygame.mixer.Sound("assets/lunch_chatting.mp3")
+        
         self.text_surface1 = self.font.render("It time for lunch. Lets go sit down and eat some food with your friends", True, (0, 0, 0))
         self.text_rect1 = self.text_surface1.get_rect(center=(400, 300))
        
@@ -31,16 +33,15 @@ class Lunch():
         
         self.image = pygame.image.load("FoodFight.png")
         self.image_rect = self.image.get_rect(center=(400, 300))
-        self.fighting_sound = pygame.mixer.Sound('fighting_sound.wav')
+        self.fighting_sound.play()
 
         self.text_surface5 = self.font.render("We better get out of here.", True, (0, 0, 0))
         self.text_rect5 = self.text_surface5.get_rect(center=(400, 500))
     def play_people_talking(self):
-        # Play the people talking sound
-        self.people_talking_sound.play()
+        caf_chatter = pygame.mixer.Sound("assets/lunch_chatting.mp3")
     def play_fighting_sound(self):
-        # Play the fighting sound
-        self.fighting_sound.play()
+        fighting_sound = pygame.mixer.Sound("assets/fighting.mp3")   
+        
     def draw(self):
         self.screen.blit(self.text_surface1, self.text_rect1)
 
