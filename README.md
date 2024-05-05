@@ -13,7 +13,7 @@
 
 ## Project Description
 
-<< We will simulate an average highschool day, with the player aswering questions or tasks in each period >>
+<< We will simulate an average highschool day, with the player aswering questions or tasks in some  periods >>
 
 ***    
 
@@ -31,41 +31,38 @@
 
 ### Features
 
-1. << Feature 1 >>
-2. << Feature 2 >>
-3. << Feature 3 >>
-4. << Feature 4 >>
+1. << Feature 1 >> Presents history class with qestions for player to answer
+2. << Feature 2 >> Presents math class with questions for player to answer
+3. << Feature 3 >> Presents a simulation of a lunch room experience
+4. << Feature 4 >> presents a simulation of ending school
 5. << Feature 5 >>
 
 ### Classes
 
-- Math Class
-- History class
-- Lunch class
-- end_of_day class
+- Math Class - it controls the background and questions of the math simulated class
+- History class - it controls the background and questions of the history simulated class
+- Lunch class - it controls the simulated scense in the lunch room 
+- end_of_day class - it controls the simulated scenes of the end of the game.
+
 ## ATP
-
-
 
 Test #1:
 - Step 1: Start game
     - Open terminal , go to project folder type:
         - ''py
-        python main.py
+        python history.py
         '''
 - Expected Result:
-   - School building should show on screen saying "Wake up its time to get ready for school"
+   - History class should show with first question to answer on screen"
 
 Test #2:
 - Step 1: Start game
     - Open terminal , go to project folder type:
          - ''py
-        python main.py
+        python end_of_day.py
         '''
-- Step 2: Sound plays
-    - Player click anywhere on screen to start 
 - Expected Result:
-    - Should start game and alarm bell on screen and sound plays 
+    - Should have school pop up  then bus with noise.
 
 Test #3:
 - Step 1: Start history class 
@@ -87,7 +84,7 @@ Test #4:
 - Step 2: Load screen with trivia question
     - Player click on box to choose answer
 - Expected results:
-    - Should load teacher responding if correct or incorrect
+    - Should load noise if correct or incorrect
 
 Test #5:
 - Step 1: Start lunch

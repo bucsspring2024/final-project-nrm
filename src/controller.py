@@ -1,5 +1,4 @@
 import pygame
-
 from src.history import History
 from src.math_1 import Math
 from src.lunch import Lunch
@@ -20,7 +19,7 @@ class Controller():
         self.lunch = Lunch()
         self.end_of_day = End()
         self.state = "WAKEUP"
-        self.classes = [self.history, self.math, self.lunch, self.end]
+        self.classes = [self.history, self.math_1, self.lunch, self.end]
 
     def mainloop(self):
         while self.classes:

@@ -17,10 +17,10 @@ class Lunch():
         self.text_surface2= self.font.render("eat some food with your friends.", True, (0, 0, 0))
         self.text_rect2 = self.text_surface2.get_rect(center=(400, 150))
     
-        self.text_surface3 = self.font.render("What are you having for lunch", True, (0, 0, 0))
+        self.text_surface3 = self.font.render("Oo,is that a sandwhich?", True, (0, 0, 0))
         self.text_rect3 = self.text_surface3.get_rect(center=(400, 100))
 
-        self.text_surface4 = self.font.render("Yum, that sounds delicious.", True, (0, 0, 0))
+        self.text_surface4 = self.font.render("It looks delicious", True, (0, 0, 0))
         self.text_rect4 = self.text_surface4.get_rect(center=(400, 100))
 
         self.text_surface5 = self.font.render("Oh no, that table started a... ", True, (0, 0, 0))
