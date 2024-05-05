@@ -17,34 +17,33 @@ class Controller():
         self.history = History()
         self.math_1 = Math()
         self.lunch = Lunch()
-        self.end_of_day = End()
+        self.end = End()
         self.state = "WAKEUP"
         self.classes = [self.history, self.math_1, self.lunch, self.end]
 
     def mainloop(self):
         while self.classes:
             if self.state == "HISTORY":
-               self.history()
+               self.history.main()
             elif self.state == "MATH":
-                self.math()
+                self.math_1.main()
             elif self.state == "LUNCH":
-                self.lunch()
-            if self.state == "END":
-                self.end()
+                self.lunch.main()
+            elif self.state == "END":
+                self.end.main()
             elif self.state == "WAKEUP":
                 self.alarm()
-        
+
     def alarm(self):    
         running = True
         alarm_controller = True
-        while running:
+        while alarm_controller:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-            if alarm_controller:
                 self.screen.fill((255, 255, 255))  
                 self.screen.blit(self.alarmclock_image, (0, 0))
-                text_surface = self.font.render("Hello, Pygame!", True, (0, 0, 0))  
+                text_surface = self.font.render("Good morning!", True, (0, 0, 0))  
                 x = (self.width - text_surface.get_width()) // 2 
                 y = (self.height - text_surface.get_height()) // 2
                 self.screen.blit(text_surface, (x, y))
@@ -52,12 +51,13 @@ class Controller():
                 pygame.display.update()
                 alarm_controller = False
                 self.state = "HISTORY"
-        
+
     def classloop(self):
-         while self.classes:
+        running = True
+        while self.classes and running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
-            if self.classes[0] == True:
-                self.classes.pop[0]
+            if self.classes[0]:
+                self.classes.pop(0)
                 pygame.display.update()

@@ -21,13 +21,11 @@ class End():
 
 
    def draw(self, screen):
-    # Draw the school house image
       screen.blit(self.endofday_image, (0, 0))
       pygame.display.flip()
-      pygame.time.delay(2000)  # Wait for 2 seconds
+      pygame.time.delay(2000)
 
-      # Draw the first sentence
-      screen.fill((255, 255, 255))  # Fill the screen with white
+      screen.fill((255, 255, 255))
       screen.blit(self.endofday_image, (0, 0))  # Redraw the school house image
       screen.blit(self.text_surface, self.text_rect)
       pygame.display.flip()

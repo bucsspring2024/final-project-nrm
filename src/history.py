@@ -87,7 +87,7 @@ class History():
             self.get_trivia_question()  # Attempt to fetch a new question each time the loop iterates
             if self.question_counter >= self.max_questions:  # Check if the maximum questions have been displayed
                 running = False  # If so, stop the loop
-                break
+                self.state = "MATH"
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
@@ -96,6 +96,7 @@ class History():
                     self.check_answer(pos)
             self.draw()
             self.classover = False
+            
 
         pygame.quit()
 
