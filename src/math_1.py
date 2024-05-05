@@ -73,87 +73,62 @@ class Math():
         cheering_sound = pygame.mixer.Sound('assets/cheering.wav')
         laughing_sound = pygame.mixer.Sound("assets/laughing.wav")
 
-            # Rest of the code...
+        if self.correct_answer_rect.collidepoint(pos):
+            # Play cheering sound
+           cheering_sound.play()
+
+
+           # Create a surface with the "Correct!" message and get its rectangle
+           message_surface = self.font.render("Correct!", True, (0, 0, 0))
+           message_rect = message_surface.get_rect(center=(400, 500))
+        else:
+           # Play laughing sound
+           laughing_sound.play()
+
+
+           # Create a surface with the "Incorrect!" message and get its rectangle
+           message_surface = self.font.render("Incorrect!", True, (0, 0, 0))
+           message_rect = message_surface.get_rect(center=(350, 500))
+
+
+       # Draw a white rectangle behind the message
+        pygame.draw.rect(self.screen, (255, 255, 255), message_rect.inflate(20, 20))
+
+
+       # Draw the message
+        self.screen.blit(message_surface, message_rect)
+
+
+        pygame.display.flip()
+
+
+       # Wait for 2 seconds before clearing the message
+        pygame.time.delay(2000)
+
+
+       # Clear the screen
+        self.screen.fill((255, 255, 255))
+        pygame.display.flip()
 
 
     def main(self):
-        running = True
-        while running:
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    running = False
-                elif event.type == pygame.MOUSEBUTTONDOWN:
-                    pos = pygame.mouse.get_pos()
-                    self.check_answer(pos)
-            self.draw()
-            self.classover = False
+       running = True
+       while running:
+           for event in pygame.event.get():
+               if event.type == pygame.QUIT:
+                   running = False
+               elif event.type == pygame.MOUSEBUTTONDOWN:
+                   pos = pygame.mouse.get_pos()
+                   self.check_answer(pos)
+           self.draw()
+           self.classover = False
 
 
-        pygame.quit()
+       pygame.quit()
 
 
 if __name__ == "__main__":
    game = Math()
    game.main()
-#     def __init__(self):
-#         pygame.init()
-#         self.screen = pygame.display.set_mode((800, 600))
-#         pygame.display.set_caption("Welcome to Math class. I am Mr. Smith and I will be your teacher today.")
-#         self.font = pygame.font.Font(None, 36)
-#         self.teacher_image = pygame.image.load("assets/Teacher.png")
 
-#         question, correct_answer, incorrect_answers = self.get_trivia_question()
-
-#         self.question_surface = self.font.render(question, True, (0,0,0))
-#         self.question_rect = self.question_surface.get_rect(center=(400, 300))
-
-#         self.correct_answer_surface = self.font.render(correct_answer, True, (0, 0, 0))
-#         self.correct_answer_rect = self.correct_answer_surface.get_rect(center=(400, 350))
-
-#         self.incorrect_answer_surfaces = [self.font.render(answer, True, (0, 0, 0)) for answer in incorrect_answers]
-#         self.incorrect_answer_rects = [surface.get_rect(center=(400, 400 + i * 50)) for i, surface in enumerate(self.incorrect_answer_surfaces)]
-
-#         self.questions = [self.get_trivia_question() for _ in range(2)]
-
-#     def get_trivia_question(self):
-#         response = requests.get("https://opentdb.com/api.php?amount=2&category=19&difficulty=medium&type=multiple")
-#         if response.status_code == 200:
-#             data = json.loads(response.text)
-#             return data['results'][0]['question'], data['results'][0]['correct_answer'], data['results'][0]['incorrect_answers']
-#         else:
-#             print("Failed to get data from trivia API")
-#             return None
-
-#     def draw(self):
-#         self.screen.blit(self.question_surface, self.question_rect)
-#         self.screen.blit(self.correct_answer_surface, self.correct_answer_rect)
-#         for surface, rect in zip(self.incorrect_answer_surfaces, self.incorrect_answer_rects):
-#             self.screen.blit(surface, rect)
-#         pygame.display.flip()
-
-#     def check_answer(self, pos):
-#             cheering_sound = pygame.mixer.Sound("assets/cheering.wav")
-#             laughing_sound = pygame.mixer.Sound("assets/laughing.wav")
-#             if self.correct_answer_rect.collidepoint(pos):
-#                 print("Correct! Great job.")
-#                 cheering_sound.play()
-#             else:
-#                 print("Oh man... better luck next time.")
-#                 laughing_sound.play()
-
-#     def main(self):
-#         running = True
-#         while running:
-#             for event in pygame.event.get():
-#                 if event.type == pygame.QUIT:
-#                     running = False
-#                 elif event.type == pygame.MOUSEBUTTONDOWN:
-#                     pos = pygame.mouse.get_pos()
-#                     self.check_answer(pos)
-#             self.draw()
-#         pygame.quit()
-
-# if __name__ == "__main__":
-#     game = Math()
-#     game.main()
-
+ 
