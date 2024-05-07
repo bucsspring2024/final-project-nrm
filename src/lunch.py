@@ -1,5 +1,5 @@
 import pygame
-import sys
+# import sys
 
 class Lunch():
     def __init__(self):

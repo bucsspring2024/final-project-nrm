@@ -2,33 +2,20 @@ import pygame
 import requests
 import pygame.time
 
-class History():
+class Math():
     def __init__(self):
         pygame.init()
-        self.screen = pygame.display.set_mode((800, 600))
-        pygame.display.set_caption("History Class")
-        self.font = pygame.font.Font(None, 25)
-        self.big_font = pygame.font.Font(None, 50)
-        self.teacher_image = pygame.image.load("assets/History_teacher.png")
+        pygame.display.set_caption("Math Class")
+        # self.font = pygame.font.Font(None, 25)
+        # self.big_font = pygame.font.Font(None, 50)
+        self.mathteacher_image = pygame.image.load("assets/math_teacher.png")
         self.cheering_sound = pygame.mixer.Sound('assets/cheering.wav')
         self.laughing_sound = pygame.mixer.Sound("assets/laughing.wav")
-        self.questions = []
-        self.question_text = ""
-        self.correct_answer = ""
-        self.incorrect_answers = []
-        self.answer_texts = []  # Store answer texts separately
-        self.question_surface = None
-        self.question_rect = None
-        self.answer_surfaces = []
-        self.answer_rects = []
-        self.question_counter = 0  # Counter to track the number of questions displayed
-        self.max_questions = 4  # Maximum number of questions to display
 
-        self.classover = False
 
     def get_trivia_question(self):
         if self.question_counter < self.max_questions:  # Check if we haven't reached the maximum questions
-            response = requests.get("https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple")
+            response = requests.get("https://opentdb.com/api.php?amount=2&category=19&difficulty=medium&type=multiple")
             data = response.json()  # Parse the JSON response
             if data['response_code'] == 0:
                 question_data = data['results'][0]
@@ -39,9 +26,9 @@ class History():
 
                 # Create surfaces and rectangles for question and answers
                 self.question_surface = self.font.render(self.question_text, True, (0, 0, 0))
-                self.question_rect = self.question_surface.get_rect(center=(400, 200))
+                self.question_rect = self.question_surface.get_rect(center=(400, 150))
                 self.answer_surfaces = [self.font.render(answer, True, (0, 0, 0)) for answer in self.answer_texts]
-                self.answer_rects = [surface.get_rect(center=(400, 300 + i * 50)) for i, surface in
+                self.answer_rects = [surface.get_rect(center=(400, 200 + i * 50)) for i, surface in
                                       enumerate(self.answer_surfaces)]
                 self.question_counter += 1  # Increment the question counter
 
@@ -87,7 +74,7 @@ class History():
             self.get_trivia_question()  # Attempt to fetch a new question each time the loop iterates
             if self.question_counter >= self.max_questions:  # Check if the maximum questions have been displayed
                 running = False  # If so, stop the loop
-                self.state = "MATH"
+                break
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
@@ -96,10 +83,9 @@ class History():
                     self.check_answer(pos)
             self.draw()
             self.classover = False
-            
 
         pygame.quit()
 
 if __name__ == "__main__":
-    game = History()
+    game = Math()
     game.main()
