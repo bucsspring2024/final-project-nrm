@@ -7,6 +7,7 @@ from src.math_class import Math
 class Academics():
     def __init__(self):
         pygame.init()
+        pygame.mixer.init()
         self.screen = pygame.display.set_mode((800, 600))
         self.history = History()
         self.math = Math()
@@ -43,7 +44,7 @@ class Academics():
             self.question_rect = self.question_surface.get_rect(center=(400, 200))
             self.answer_surfaces = [self.font.render(answer, True, (0, 0, 0)) for answer in self.answer_texts]
             self.answer_rects = [surface.get_rect(center=(400, 300 + i * 50)) for i, surface in enumerate(self.answer_surfaces)]
-            self.draw_trivia_questions()
+        self.draw_trivia_questions()
 
     def draw_trivia_questions(self):
         if self.question_surface is not None:
@@ -51,7 +52,7 @@ class Academics():
             for surface, rect in zip(self.answer_surfaces, self.answer_rects):
                 pygame.draw.rect(self.screen, (200, 200, 200), rect)  # Draw background for answers
                 self.screen.blit(surface, rect)
-        pygame.display.flip()
+        pygame.display.update()
 
     def check_answer(self, pos):
         for answer_text, rect in zip(self.answer_texts, self.answer_rects):
@@ -64,7 +65,6 @@ class Academics():
                 # Clear question and answer surfaces
                 self.question_surface = None
                 self.answer_surfaces = []
-                break  # Exit the loop after selecting an answer
 
     def show_feedback(self, is_correct):
         message = "Correct!" if is_correct else "Incorrect!"
@@ -80,10 +80,8 @@ class Academics():
                 if event.type == pygame.MOUSEBUTTONDOWN:
                     pos = pygame.mouse.get_pos()
                     self.check_answer(pos)  # Check if the user clicked on an answer
-                    self.draw_trivia_question()  # Get the next trivia question after user input
                     self.question_counter = self.question_counter + 1
-            pygame.display.flip()  # Update the display    
-        pygame.quit()
+            pygame.display.update()  # Update the display    
 
 if __name__ == "__main__":
     game = Academics()

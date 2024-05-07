@@ -20,7 +20,7 @@ class Controller:
         
     def mainloop(self):
         running = True
-        while running and self.classes:
+        while running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     running = False
@@ -30,16 +30,16 @@ class Controller:
                 class_instance = self.classes[0]
                 class_instance.main()
                 pygame.display.update()
-                self.classes.pop(0)
+                self.classes.pop[0]
+            running = False
     
     def alarmfunc(self):
         self.screen.blit(self.alarm_image, (0, 0))
         self.alarm_sound.play()
         pygame.time.delay(1000)
-        pygame.display.update()
         pygame.display.set_caption("Click the screen to start your day!")
         pygame.display.update()
-        self.classes = [self.end, self.lunch, self.academics]
+        self.classes = [self.academic, self.lunch, self.end]
         for event in pygame.event.get():
             if event.type == pygame.MOUSEBUTTONDOWN and self.alarm:
                 self.alarm_sound.stop()
