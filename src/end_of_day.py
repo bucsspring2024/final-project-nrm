@@ -3,7 +3,7 @@ class End():
    def __init__ (self):
       pygame.init()
       self.font = pygame.font.Font(None, 36)
-      self.endofday_image = pygame.image.load("assets/School.webp")
+      # self.endofday_image = pygame.image.load("assets/images/angryperson.png")
       self.screen = pygame.display.set_mode((800, 600))
       pygame.display.set_caption("End of the Day")
       self.text_surface = self.font.render("Wow what an interesting day!", True, (0, 0, 0))
