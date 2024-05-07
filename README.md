@@ -17,7 +17,8 @@
 
 ***    
 
-## GUI Design
+## GUI 
+
 
 ### Initial Design
 
