@@ -10,8 +10,8 @@ class Controller:
         self.width = 800
         self.height = 600
         self.screen = pygame.display.set_mode((self.width, self.height))
-        self.alarm_image = pygame.image.load("assets/alarm_clock.png")
-        self.alarm_sound = pygame.mixer.Sound("assets/alarm_sound.wav")
+        self.alarm_image = pygame.image.load("assets/images/alarm_clock.png")
+        self.alarm_sound = pygame.mixer.Sound("assets/sounds/alarm_sound.wav")
         self.lunch = Lunch()
         self.end = End()
         self.academics = Academics()
