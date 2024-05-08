@@ -48,26 +48,29 @@ class End():
       screen.blit(self.text_surface5, self.text_rect5)
       # self.Bus_sound.play()
       pygame.display.flip()
-      pygame.time.delay(8000)  # Wait for 2 seconds
-
+      pygame.time.delay(4000)  # Wait for 2 seconds
+      
+      
    def main(self):
-      pygame.init()
-      screen = pygame.display.set_mode((800, 600))
       running = True
       while running:
          for event in pygame.event.get():
             if event.type == pygame.QUIT:
                running = False
-         self.draw(screen)
-         if not self.video_capture.isOpened():
-            print("Error: Unable to open video file")
-            exit()
-         self.ret, self.frame = self.video_capture.read()
-         if not self.ret:
-            break
-         cv2.imshow('Video', self.frame)
-         self.video_capture.release()
-         cv2.destroyAllWindows()
+
+            self.draw(self.screen)
+
+            ret, frame = self.video_capture.read()
+            if ret:
+                frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+                frame = pygame.surfarray.make_surface(frame)
+                self.screen.blit(frame, (0, 0))
+                pygame.display.flip()
+            else:
+                self.video_capture.set(cv2.CAP_PROP_POS_FRAMES, 0)
+
+      self.video_capture.release()
+      cv2.destroyAllWindows()
 
 
 if __name__ == "__main__":
