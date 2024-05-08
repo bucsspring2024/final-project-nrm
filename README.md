@@ -27,7 +27,7 @@
 
 ### Final Design
 
-![final gui](assets/finalgui.jpg)
+![final gui](assets/FinalGui.png)
 
 ## Program Design
 << The program comprises several classes:
