@@ -13,11 +13,12 @@
 
 ## Project Description
 
-<< We will simulate an average highschool day, with the player aswering questions or tasks in some  periods >>
+<< We will simulate a day of school that starts with an alarm, proceeds to go through trivia in history and math classes, enters a foodfight during lunch, and leaves on the school bus >>
 
 ***    
 
 ## GUI 
+
 
 
 ### Initial Design
@@ -29,21 +30,45 @@
 ![final gui](assets/finalgui.jpg)
 
 ## Program Design
+<< The program comprises several classes:
+End Class: Represents the end of the school day, displaying messages and playing a video of a school bus.
+History Class: Represents the history class session, displaying the history teacher's image.
+Math Class: Represents the math class session, displaying the math teacher's image and playing their sound.
+Academics Class: Manages academic sessions, fetching trivia questions, displaying them, and checking user responses.
+Lunch Class: Manages lunchtime activities, including interactive scenes such as food fights.
+Controller Class: Orchestrates the program flow, controlling transitions between activities and managing the main loop.
+Each class focuses on specific aspects of the school day, aiming to provide an engaging educational experience for the user through interactive content and fun activities. >>
+
 
 ### Features
-
-1. << Feature 1 >> Presents history class with qestions for player to answer
-2. << Feature 2 >> Presents math class with questions for player to answer
-3. << Feature 3 >> Presents a simulation of a lunch room experience
-4. << Feature 4 >> presents a simulation of ending school
-5. << Feature 5 >>
+<<
+1. Fetch trivia questions using API and display feedback based on user interaction 
+2. Uses screendisplay and alarm sound to simuate waking up 
+3. Simulates a simulation of a lunch room experience including food fight 
+4. Presents a simulation of ending school 
+5. Utilizes an indexed list of object instances for each relevant class to access the mainloop and relevant methods in each of them >>
 
 ### Classes
+<<
+- Math Class - it controls the specific features of the math class such as screen display and api url
+- History class - it controls the specific features of the math class
+- academics class - it controls the methods that relate to both the history and math class, such as fetching trivia questions, checking if answers are correct
+- Lunch class - controls the screen display and methods of a simulated food fight
+- end_of_day class - it controls the simulated scenes of the end of the game
+>> 
 
-- Math Class - it controls the background and questions of the math simulated class
-- History class - it controls the background and questions of the history simulated class
-- Lunch class - it controls the simulated scense in the lunch room 
-- end_of_day class - it controls the simulated scenes of the end of the game.
+### Citations
+<< @article{opencv_library,
+    author = {Bradski, G.},
+    citeulike-article-id = {2236121},
+    journal = {Dr. Dobb's Journal of Software Tools},
+    keywords = {bibtex-import},
+    posted-at = {2008-01-15 19:21:54},
+    priority = {4},
+    title = {{The OpenCV Library}},
+    year = {2000}
+}
+>>
 
 ## ATP
 
