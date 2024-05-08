@@ -1,5 +1,3 @@
-
-
 import pygame
 
 from src.academics import Academics
@@ -8,7 +6,26 @@ from src.end_of_day import End
 
 
 class Controller:
+    '''
+    A class representing the controller for managing the daily routine.
+
+    Attributes:
+        width: An integer representing the width of the display screen.
+        height: An integer representing the height of the display screen.
+        screen: A Pygame surface representing the display screen.
+        alarm_image: A Pygame image representing the alarm clock.
+        alarm_sound: A Pygame sound object representing the alarm sound.
+        lunch: An instance of the Lunch class for managing lunchtime activities.
+        end: An instance of the End class for managing end-of-day activities.
+        academics: An instance of the Academics class for managing academic activities.
+        alarm: A boolean indicating whether the alarm is active.
+        classes: A list containing instances of classes representing daily activities.
+    '''
+
     def __init__(self):
+        '''
+        Initializes the Controller object.
+        '''
         pygame.init()
         self.width = 800
         self.height = 600
@@ -22,6 +39,9 @@ class Controller:
         self.classes = []
 
     def mainloop(self):
+        '''
+         Main loop for controlling the daily routine.
+        '''
         running = True
         while running:
             for event in pygame.event.get():
@@ -37,6 +57,9 @@ class Controller:
             running = False
 
     def alarmfunc(self):
+        '''
+         Manages the alarm functionality.
+        '''
         self.screen.blit(self.alarm_image, (0, 0))
         self.alarm_sound.play()
         pygame.time.delay(1000)

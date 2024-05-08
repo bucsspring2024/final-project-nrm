@@ -18,7 +18,6 @@
 ***    
 
 ## GUI 
-![alt text](<Screenshot 2024-05-08 000447.png>)
 
 
 ### Initial Design
