@@ -43,57 +43,75 @@
 - Math Class - it controls the background and questions of the math simulated class
 - History class - it controls the background and questions of the history simulated class
 - Lunch class - it controls the simulated scense in the lunch room 
-- end_of_day class - it controls the simulated scenes of the end of the game.
+- end_classclass - it controls the simulated scenes of the end of the game.
+- Controller Class - allows the mai 
 
 ## ATP
 
-Test #1:
+Test #1: Start screen
+Descrition: Verify that the game starts.
 - Step 1: Start game
     - Open terminal , go to project folder type:
         - ''py
-        python history.py
+        python main.py
         '''
+- Step 2: Verify that start screen appears
+- Step 3: Verify that alarm sound plays
 - Expected Result:
-   - History class should show with first question to answer on screen"
+   - Screen should appear that shows an alarm clock along with an alarm sound that plays.
 
-Test #2:
-- Step 1: Start game
+Test #2: Prodcue a picture
+Descrition: verifies that the intened end of day message and images appear on screen on order.
+- Step 1: Start end_of day py
     - Open terminal , go to project folder type:
          - ''py
         python end_of_day.py
         '''
+- Step 2: Verify that image stays on screen.
+- Steo 3: Verty that sentences change to continue. 
 - Expected Result:
-    - Should have school pop up  then bus with noise.
+    - Should have images appear on a window with messages appearing in order.
 
-Test #3:
-- Step 1: Start history class 
+Test #3: 
+Descrition: Api function for Math class
+- Step 1: Start math_class.py 
+    - Open terminal , go to project folder type:
+         - ''py
+        python math_class.py
+        '''
+- Step 2: Verify image and questions appear on screen.
+- Step 3: Try to answer multiple choice math question.
+    - use mouse to click on an answer.
+- Step 4: Verify that response appears on screen according to result.
+- Step 5: Verify that noise playsn according to result.
+- Expected result:
+    - Once question is answered a noise and message will play depending on if you got the question correct or not.
+
+Test #4: Player interaction
+Descrition: Ensures that code functions when player interacts with the simulator
+- Step 1: Start lunch py
+    - Open terminal , go to project folder type:
+         - ''py
+        python end_of_day.py
+        '''
+- Step 2: Follow instructions on screen
+    - use mouse to click on the food to start foodfight
+- Step 3: Verify that image changes once clicked
+- Step 4: Verify that images continue to change following
+- Expected results:
+    - Should load series of images once player clicked on food to simulate foodfight
+
+Test #3: 
+Descrition: Api function for history class
+- Step 1: Start history.py 
     - Open terminal , go to project folder type:
          - ''py
         python history.py
         '''
-- Step 2: Load screen with trivia questions
-    - Player clicks on a box on the screen
+- Step 2: Verify image and questions appear on screen.
+- Step 3: Try to answer multiple choice history question.
+    - use mouse to click on an answer.
+- Step 4: Verify that response appears on screen according to result.
+- Step 5: Verify that noise playsn according to result.
 - Expected result:
-    - Should show teachers response if correct 
-
-Test #4:
-- Step 1: Start math class
-    - Open terminal , go to project folder type:
-         - ''py
-        python math.py
-        '''
-- Step 2: Load screen with trivia question
-    - Player click on box to choose answer
-- Expected results:
-    - Should load noise if correct or incorrect
-
-Test #5:
-- Step 1: Start lunch
-    - Open terminal , go to project folder type:
-          - ''py
-        python lunch.py
-        '''
-- Step 2: Load screen 
-    - Player should read the lines
-- Expected results:
-    - Conversation should run between player and other student
+    - Once question is answered a noise and message will play depending on if you got the question correct or not.
