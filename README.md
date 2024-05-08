@@ -55,7 +55,6 @@ Each class focuses on specific aspects of the school day, aiming to provide an e
 - academics class - it controls the methods that relate to both the history and math class, such as fetching trivia questions, checking if answers are correct
 - Lunch class - controls the screen display and methods of a simulated food fight
 - end_of_day class - it controls the simulated scenes of the end of the game
->> 
 
 ### Citations
 << @article{opencv_library,
@@ -68,10 +67,8 @@ Each class focuses on specific aspects of the school day, aiming to provide an e
     title = {{The OpenCV Library}},
     year = {2000}
 }
->>
 
 ## ATP
-
 Test #1: Start screen
 Descrition: Verify that the game starts.
 - Step 1: Start game
