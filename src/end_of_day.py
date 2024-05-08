@@ -16,9 +16,8 @@ class End():
       self.text_rect3 = self.text_surface3.get_rect(center=(400, 400))
       self.text_surface4 = self.font.render("Have a good evening and hopefully we'll see you tommorrow.", True, (0, 0, 0))
       self.text_rect4 = self.text_surface4.get_rect(center=(400, 450))
-      self.text_surface5 = self.font.render("Goodbye!!!!", True, (0, 0, 0))
+      self.text_surface5 = self.font.render("Goodbye!!", True, (0, 0, 0))
       self.text_rect5 = self.text_surface5.get_rect(center=(400, 500))
-      # self.Bus_sound = pygame.mixer.Sound('assets/Bus_starting.wav')
       self.video_capture = cv2.VideoCapture("assets/images/schoolbus.mp4")
 
 
