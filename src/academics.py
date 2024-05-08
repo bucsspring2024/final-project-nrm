@@ -12,7 +12,7 @@ class Academics():
         self.history = History()
         self.math = Math()
         self.academic_classes = [self.history, self.math]
-        self.cheering_sound = pygame.mixer.Sound('assets/cheering.wav')
+        self.cheering_sound = pygame.mixer.Sound('assets/sounds/cheering.wav')
         self.questions = []
         self.question_text = ""
         self.correct_answer = ""
@@ -29,7 +29,7 @@ class Academics():
             self.screen.blit(class_instance.teacher_image, (0, 0))
             self.class_instance.teacher_sound.play()
             pygame.time.wait(int(self.teacher_sound.get_length() * 1000))
-        pygame.display.update()
+            pygame.display.update()
     
     def get_trivia_question(self):
         response = requests.get("https://opentdb.com/api.php?amount=1&category=23&difficulty=medium&type=multiple")
